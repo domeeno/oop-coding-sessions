@@ -1,4 +1,5 @@
 #include "stringc.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -22,9 +23,12 @@ stringc *stringc_new_val(char *chars) {
   return result;
 };
 
-stringc *stringc_assign(stringc *this, char *chars) {
+void stringc_assign(stringc *this, char *chars) {
+  free(this->text);
+  this->text = strdup(chars);
+  this->textSize = strlen(chars);
+}
 
-  stringc.text = str
-
-    return k
+void stringc_print(stringc *this) {
+  printf("%p - %s\n", this, this->text);
 }
